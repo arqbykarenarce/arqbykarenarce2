@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arq By Karen Arce | Diseño arquitectónico y de interiores 100% remoto</title>
+<meta name="description" content="Diseño arquitectónico y diseño interior 100% remoto, a nivel nacional e internacional.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161616'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 13 L16 51 M16 33 L31 14 M17 31 L32 51'/%3E%3Cpath d='M36 51 L46 13 L56 51 M39.5 38 L53 36.5'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--soft:#f0f0ef;--ink:#141414;--mut:#686868;--line:#dcdcda;--dark:#1b1b1b;--acc:#8ab7c0;--nav:68px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav)}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-weight:300;line-height:1.65}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:100px 0}
+h1,h2,h3{font-weight:500;letter-spacing:-.02em;line-height:1.12}
+h2{font-size:clamp(1.8rem,3.4vw,2.7rem)}
+.tag{display:flex;align-items:center;gap:12px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:20px}
+.tag b{font-weight:500;color:var(--ink)}
+.tag::after{content:"";width:48px;height:1px;background:currentColor;opacity:.5}
+.lead{max-width:640px;color:var(--mut);margin-top:16px}
+.btn{display:inline-block;padding:13px 26px;border-radius:6px;background:var(--ink);color:#fff;font:500 .9rem 'Poppins',sans-serif;border:1px solid var(--ink);cursor:pointer;transition:.2s}
+.btn:hover{background:#000}
+.btn.w{background:#fff;color:var(--ink);border-color:#fff}
+.btn.o{background:transparent;color:inherit;border-color:currentColor}
+.ph{background:linear-gradient(135deg,#cdcdcb,#a9a9a7);position:relative;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.dark{background:var(--dark);color:#f1f1f1}
+.dark .tag,.dark .lead{color:#aaa}.dark .tag b{color:#fff}
+
+/* NAV: siempre visible y traslúcido */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:60;background:rgba(18,18,18,.55);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.08);color:#fff}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav img{height:30px}
+.links{display:flex;gap:26px;font-size:.85rem}
+.links a{opacity:.8;transition:.2s}.links a:hover,.links a.on{opacity:1}
+.nav .right{display:flex;align-items:center;gap:18px}
+.nav .btn{padding:9px 18px;font-size:.82rem}
+.soc{display:flex;gap:14px;font-size:.78rem;opacity:.8}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:#fff;background:#262626;padding-top:var(--nav)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.85) 0%,rgba(10,10,10,.45) 60%,rgba(10,10,10,.2) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:64px;padding-top:60px}
+.hero h1{font-size:clamp(2.4rem,6.4vw,5.2rem);max-width:13ch;margin-bottom:20px}
+.hero p.sub{max-width:520px;font-size:1.05rem;color:#e4e4e4}
+.pick{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+.pick a{display:block;padding:22px 24px;border:1px solid rgba(255,255,255,.3);border-radius:10px;background:rgba(255,255,255,.07);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:.2s}
+.pick a:hover{background:rgba(255,255,255,.16)}
+.pick small{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.pick strong{display:block;font-weight:500;font-size:1.1rem;margin:4px 0}
+.pick span{font-size:.85rem;opacity:.8}
+
+/* RESUMEN */
+.sum{padding:0;border-bottom:1px solid var(--line)}
+.sum .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.sum div{padding:34px 24px 34px 0;font-size:.88rem;color:var(--mut)}
+.sum b{display:block;color:var(--ink);font-weight:500;font-size:1rem;margin-bottom:4px}
+
+/* SERVICIOS */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:72px}
+.svc.rev .ph{order:2}
+.svc .ph{aspect-ratio:5/4;border-radius:10px}
+.svc h3{font-size:1.9rem;margin-bottom:12px}
+.svc p{color:var(--mut)}
+.svc ul{list-style:none;margin:22px 0 26px}
+.svc li{padding:10px 0 10px 26px;border-top:1px solid var(--line);position:relative;font-size:.93rem}
+.svc li::before{content:"";position:absolute;left:0;top:19px;width:12px;height:1px;background:var(--ink)}
+.price{font-size:.82rem;color:var(--mut);margin-bottom:20px}
+.warn{margin-top:60px;padding:22px 26px;background:var(--soft);border-radius:10px;font-size:.88rem;color:var(--mut)}
+.warn b{color:var(--ink);font-weight:500}
+
+/* PROCESO */
+.flow{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:56px}
+.tl{list-style:none;border-left:1px solid #484848}
+.tl li{padding:0 0 34px 34px;position:relative}
+.tl li::before{content:"";position:absolute;left:-5px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--acc)}
+.tl b{font-weight:500;font-size:1.05rem;display:block}
+.tl span{font-size:.9rem;color:#b5b5b5}
+.pay3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.pay3 div{border:1px solid #484848;border-radius:10px;padding:20px 16px;text-align:center}
+.pay3 big{display:block;font-size:2rem;font-weight:300}
+.pay3 span{font-size:.78rem;color:#b5b5b5}
+.facts p{padding:14px 0;border-top:1px solid #484848;font-size:.92rem;color:#d0d0d0}
+.facts p b{color:#fff;font-weight:500}
+
+/* PROYECTOS */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:32px 0}
+.filters button{padding:9px 18px;border-radius:6px;border:1px solid var(--line);background:#fff;font:400 .85rem 'Poppins',sans-serif;cursor:pointer}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.g{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/3;background:#bbb}
+.g .ph{position:absolute;inset:0}
+.g img{cursor:zoom-in;transition:transform .5s}
+.g:hover img{transform:scale(1.04)}
+.g figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7));pointer-events:none}
+.g h4{font-weight:500;font-size:.98rem}
+.g span{font-size:.78rem;opacity:.85}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:80;padding:30px;cursor:zoom-out}
+#lb.on{display:flex}#lb img{max-height:100%;border-radius:8px}
+
+/* DIFERENCIALES */
+.soft{background:var(--soft)}
+.diff{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.diff div{background:#fff;border-radius:10px;padding:30px}
+.diff i{font-style:normal;font-size:.8rem;color:var(--mut)}
+.diff h3{font-size:1.15rem;margin:8px 0}
+.diff p{font-size:.9rem;color:var(--mut)}
+
+/* SOBRE MI */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.about .ph{aspect-ratio:4/5;border-radius:10px}
+.about p{margin-top:16px;color:var(--mut);max-width:540px}
+.sign{height:84px;margin-top:24px}
+
+/* URBANISMO */
+.urb{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.urb ul{list-style:none;margin:24px 0 28px}
+.urb li{padding:11px 0;border-top:1px solid #484848;font-size:.93rem}
+.urb .ph{aspect-ratio:4/3;border-radius:10px;background:linear-gradient(135deg,#3b3b3b,#2a2a2a)}
+
+/* PAGOS */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.cols div{border:1px solid var(--line);border-radius:10px;padding:30px}
+.cols h3{font-size:1.2rem;margin-bottom:6px}.cols p{color:var(--mut);font-size:.92rem}
+
+/* FAQ */
+.faq{max-width:840px;margin-top:36px}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-weight:400}
+summary::after{content:"+";font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--mut);font-size:.93rem}
+
+/* CTA + footer */
+.cta{text-align:center}
+.cta h2{max-width:720px;margin:0 auto 18px}
+.cta .lead{margin:0 auto 32px}
+footer{background:#111;color:#aaa;padding:40px 0;font-size:.82rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer img{height:32px}
+.fab{position:fixed;right:20px;bottom:20px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+
+@media(max-width:920px){
+ section{padding:72px 0}
+ .links,.soc{display:none}
+ .burger{display:block}
+ .links.open{display:flex;flex-direction:column;position:absolute;top:var(--nav);left:0;right:0;padding:20px 28px;background:rgba(18,18,18,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+ .nav .btn{display:none}
+ .pick,.sum .wrap,.diff{grid-template-columns:1fr}
+ .sum .wrap{grid-template-columns:1fr 1fr}
+ .svc,.flow,.about,.urb,.cols{grid-template-columns:1fr;gap:34px}
+ .svc.rev .ph{order:0}
+ .grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.sum .wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- MENÚ TRASLÚCIDO FIJO -->
+<div class="nav">
+  <div class="wrap">
+    <a href="#inicio"><img src="images/BYKARENARCE_azul.png" alt="Arquitectura By Karen Arce"></a>
+    <nav class="links" id="links">
+      <a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#proyectos">Proyectos</a><a href="#sobre-mi">Sobre mí</a><a href="#faq">Preguntas</a>
+    </nav>
+    <div class="right">
+      <div class="soc"><a href="https://instagram.com/arq.bykarenarce" target="_blank" rel="noopener">@arq.bykarenarce</a><a href="https://tiktok.com/@art.bykarenarce" target="_blank" rel="noopener">TikTok</a></div>
+      <a class="btn w wa" data-msg="Hola Karen, quisiera información sobre tus servicios de diseño." href="#">WhatsApp</a>
+      <button class="burger" id="bg" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <img src="images/hero.jpg" alt="" onerror="this.remove()">
+  <div class="wrap">
+    <h1>Diseño que se ve bien y se vive bien</h1>
+    <p class="sub">Arquitectura y diseño interior 100% remoto, a nivel nacional e internacional. Proyectos personalizados, con planos, dimensiones y productos reales.</p>
+    <div class="pick">
+      <a href="#servicios"><small>01 · Para ti</small><strong>Diseño arquitectónico</strong><span>Tengo un lote o una idea de proyecto →</span></a>
+      <a href="#servicios"><small>02 · Para ti</small><strong>Diseño interior</strong><span>Quiero transformar un espacio →</span></a>
+      <a href="#urbanismo"><small>03 · Empresas</small><strong>Urbanismo e institucional</strong><span>Entidades, constructoras y desarrolladores →</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- RESUMEN -->
+<div class="sum">
+  <div class="wrap">
+    <div><b>100% remoto</b>Reuniones, revisiones y entrega digitales.</div>
+    <div><b>7 a 15 días hábiles</b>Según el alcance del proyecto.</div>
+    <div><b>Entregable completo</b>Planos, renders y lista de compras.</div>
+    <div><b>Acompañamiento</b>Asesoría durante todo el proceso.</div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="wrap">
+    <p class="tag"><b>01</b> Servicios</p>
+    <h2>Elige qué quieres desarrollar</h2>
+    <p class="lead">Diseñar para construir, no solo para imaginar: cada propuesta parte de tus necesidades y del lugar, y llega con información que puedes cotizar y llevar a obra.</p>
+
+    <div class="svc">
+      <div class="ph"><img src="images/servicio-arquitectonico.jpg" alt="" onerror="this.remove()"></div>
+      <div>
+        <h3>Diseño arquitectónico</h3>
+        <p>Para quien tiene un lote, una propiedad o una idea y necesita la mejor solución posible: vivienda, proyectos comerciales y otras tipologías.</p>
+        <ul>
+          <li>Estudio del lote y concepto de diseño</li>
+          <li>Plantas dimensionadas, cortes, fachadas e implantación</li>
+          <li>Modelo 3D y renders</li>
+          <li>Documentación técnica según el alcance</li>
+        </ul>
+        <p class="price">Cotización según alcance · [Valor desde: COP / USD]</p>
+        <a class="btn wa" data-msg="Hola Karen, me interesa el servicio de Diseño arquitectónico. Quisiera cotizar mi proyecto." href="#">Cotizar por WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="svc rev">
+      <div class="ph"><img src="images/servicio-interior.jpg" alt="" onerror="this.remove()"></div>
+      <div>
+        <h3>Diseño interior</h3>
+        <p>Se contrata por espacio: sala, habitación, cocina, baño, estudio, terraza u otro. Para varios espacios o vivienda integral, cotización personalizada.</p>
+        <ul>
+          <li>Medidas y diagnóstico del espacio</li>
+          <li>Distribución, materiales, acabados e iluminación</li>
+          <li>Modelo 3D, renders y planos con dimensiones</li>
+          <li>Lista de compras con referencias reales</li>
+        </ul>
+        <p class="price">Por espacio · [Valor desde: COP / USD]</p>
+        <a class="btn wa" data-msg="Hola Karen, me interesa el servicio de Diseño interior. Quisiera cotizar mi espacio." href="#">Cotizar por WhatsApp</a>
+      </div>
+    </div>
+
+    <p class="warn"><b>Importante:</b> licencias de construcción, estudios y diseños estructurales, eléctricos, hidrosanitarios o de suelos, y presupuestos de obra se cotizan por separado. Los valores de las listas de compras son referenciales a la fecha de consulta. No ejecuto obras ni remodelaciones: el servicio es el diseño profesional del proyecto.</p>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso" class="dark">
+  <div class="wrap">
+    <p class="tag"><b>02</b> Proceso y pagos</p>
+    <h2>Cómo trabajamos juntos</h2>
+    <div class="flow">
+      <ol class="tl">
+        <li><b>Defines el servicio y el alcance</b><span>Me escribes por WhatsApp y lo aclaramos.</span></li>
+        <li><b>Envías tu información</b><span>Planos, fotografías, medidas y materiales disponibles, con el anticipo del 30%.</span></li>
+        <li><b>Primer meet virtual</b><span>Ideas, gustos, perspectivas y elementos clave de la propuesta.</span></li>
+        <li><b>Primer avance y aprobación</b><span>Con el segundo 30% se desarrollan los ajustes y detalles.</span></li>
+        <li><b>Entrega final</b><span>Con el 40% restante recibes planos, renders, lista de compras y demás elementos.</span></li>
+      </ol>
+      <div>
+        <div class="pay3">
+          <div><big>30%</big><span>Anticipo</span></div>
+          <div><big>30%</big><span>Tras el primer avance</span></div>
+          <div><big>40%</big><span>Al entregar</span></div>
+        </div>
+        <div class="facts">
+          <p><b>Colombia:</b> valores en COP, pago por transferencia con llaves Bre-B desde cualquier banco.</p>
+          <p><b>Exterior:</b> valores en USD, pago por PayPal.</p>
+          <p><b>Plazo:</b> entre 7 y 15 días hábiles según el alcance.</p>
+          <p>La información de pago se envía por WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="wrap">
+    <p class="tag"><b>03</b> Proyectos</p>
+    <h2>Proyectos realizados</h2>
+    <div class="filters" id="filters">
+      <button class="on" data-f="all">Todos</button>
+      <button data-f="vivienda">Vivienda</button>
+      <button data-f="interior">Interior residencial</button>
+      <button data-f="comercial">Interior comercial</button>
+      <button data-f="urbanismo">Urbanismo</button>
+    </div>
+    <div class="grid" id="gallery"></div>
+  </div>
+</section>
+
+<!-- DIFERENCIALES -->
+<section class="soft">
+  <div class="wrap">
+    <p class="tag"><b>04</b> Diferenciales</p>
+    <h2>No diseño desde una imagen de referencia</h2>
+    <div class="diff">
+      <div><i>A</i><h3>Contexto</h3><p>Clima, orientación, terreno, condiciones existentes, necesidades y presupuesto participan en cada decisión.</p></div>
+      <div><i>B</i><h3>Dimensiones y productos reales</h3><p>Sabrás cuánto mide cada elemento, dónde va, qué material lleva y qué referencia conseguir.</p></div>
+      <div><i>C</i><h3>Anticipar antes de ejecutar</h3><p>Se detectan circulaciones incómodas, espacios desaprovechados y compras equivocadas antes de gastar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MI -->
+<section id="sobre-mi">
+  <div class="wrap about">
+    <div class="ph"><img src="images/karen.jpg" alt="Karen Arce, arquitecta" onerror="this.remove()"></div>
+    <div>
+      <p class="tag"><b>05</b> Sobre mí</p>
+      <h2>Karen Arce, arquitecta</h2>
+      <p>Soy colombiana, oriunda de un pequeño pueblo del Meta. Tengo 28 años y formación lasallista en Arquitectura. Encontré en el diseño y en el arte una vocación y una responsabilidad: crear espacios que funcionen, que se vean bien y que se sientan propios.</p>
+      <p>Cada proyecto es personalizado y lo acompaño de principio a fin.</p>
+      <img class="sign" src="images/FIRMA_KA__2025.png" alt="Firma de Karen Arce" onerror="this.remove()">
+    </div>
+  </div>
+</section>
+
+<!-- URBANISMO -->
+<section id="urbanismo" class="dark">
+  <div class="wrap urb">
+    <div>
+      <p class="tag"><b>06</b> Línea institucional</p>
+      <h2>Urbanismo y proyectos institucionales</h2>
+      <p class="lead">Para entidades, constructoras, consultoras y desarrolladores.</p>
+      <ul>
+        <li>Diseño urbanístico, parques y espacio público</li>
+        <li>Equipamientos institucionales</li>
+        <li>Modelado 3D, BIM y recorridos virtuales</li>
+        <li>Documentación técnica y visualización para comercialización</li>
+      </ul>
+      <a class="btn w wa" data-msg="Hola Karen, represento a una entidad/empresa y quisiera información sobre proyectos de urbanismo e institucionales." href="#">Escribirme</a>
+    </div>
+    <div class="ph"><img src="images/urbanismo.jpg" alt="" onerror="this.remove()"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <p class="tag"><b>07</b> Preguntas frecuentes</p>
+    <h2>Antes de escribirme</h2>
+    <div class="faq">
+      <details><summary>¿Realmente es 100% remoto?</summary><p>Sí. Trabajo con los planos, fotografías y medidas que me envías. Reuniones, revisiones y entrega son digitales.</p></details>
+      <details><summary>¿Cuánto tarda un proyecto?</summary><p>Entre 7 y 15 días hábiles, según el alcance.</p></details>
+      <details><summary>¿Qué recibo al final?</summary><p>Según el servicio: planos, renders, modelo 3D, selección de materiales, lista de compras y demás elementos de la propuesta.</p></details>
+      <details><summary>¿Incluye licencia o diseños estructurales?</summary><p>No de forma automática. Se cotizan según el alcance que necesites.</p></details>
+      <details><summary>¿Ejecutas la obra?</summary><p>No. El servicio es el diseño del proyecto, para que puedas presupuestar, comprar y ejecutar con claridad.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contacto" class="dark cta">
+  <div class="wrap">
+    <h2>Cuéntame qué quieres construir o transformar</h2>
+    <p class="lead">Escríbeme por WhatsApp para elegir el servicio, resolver dudas y finalizar el proceso de pago.</p>
+    <a class="btn w wa" data-msg="Hola Karen, quisiera información sobre tus servicios de diseño." href="#">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="images/BYKARENARCE_azul.png" alt="Arquitectura By Karen Arce">
+    <div>Instagram <a href="https://instagram.com/arq.bykarenarce" target="_blank" rel="noopener">@arq.bykarenarce</a> · TikTok <a href="https://tiktok.com/@art.bykarenarce" target="_blank" rel="noopener">art.bykarenarce</a></div>
+    <div>© <span id="y"></span> Arq By Karen Arce</div>
+  </div>
+</footer>
+
+<a class="btn wa fab" data-msg="Hola Karen, quisiera información sobre tus servicios de diseño." href="#">WhatsApp</a>
+<div id="lb"><img alt=""></div>
+
+<script>
+/* ===== EDITA TUS PROYECTOS =====  cat: vivienda | interior | comercial | urbanismo */
+const PROYECTOS=[
+ {img:"images/proyecto-01.jpg",title:"Casa Raíz",sub:"Vivienda · La Guajira",cat:"vivienda"},
+ {img:"images/proyecto-02.jpg",title:"Casa Solar",sub:"Vivienda · Cali",cat:"vivienda"},
+ {img:"images/proyecto-03.jpg",title:"Proyecto Barú",sub:"Vivienda · Boyacá",cat:"vivienda"},
+ {img:"images/proyecto-04.jpg",title:"Reforma de fachada",sub:"Antes y después",cat:"vivienda"},
+ {img:"images/proyecto-05.jpg",title:"Home Office",sub:"Interior residencial",cat:"interior"},
+ {img:"images/proyecto-06.jpg",title:"Cocina",sub:"Interior residencial",cat:"interior"},
+ {img:"images/proyecto-07.jpg",title:"Baño",sub:"Interior residencial",cat:"interior"},
+ {img:"images/proyecto-08.jpg",title:"Oficina con lista de compras",sub:"Interior comercial",cat:"comercial"},
+ {img:"images/proyecto-09.jpg",title:"Oficina Pixel",sub:"Interior comercial",cat:"comercial"},
+ {img:"images/proyecto-10.jpg",title:"Restaurante Pandora",sub:"Interior comercial",cat:"comercial"},
+ {img:"images/proyecto-11.jpg",title:"Ruta Cacaotera",sub:"Urbanismo · Arauca",cat:"urbanismo"},
+ {img:"images/proyecto-12.jpg",title:"Cristo Rey",sub:"Urbanismo · Villavicencio",cat:"urbanismo"}
+];
+const WA="573244733213",g=document.getElementById("gallery");
+function render(f){g.innerHTML=PROYECTOS.filter(p=>f==="all"||p.cat===f).map(p=>`<figure class="g"><div class="ph"><img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.remove()"></div><figcaption><h4>${p.title}</h4><span>${p.sub}</span></figcaption></figure>`).join("")}
+render("all");
+document.getElementById("filters").onclick=e=>{const b=e.target.closest("button");if(!b)return;document.querySelectorAll("#filters button").forEach(x=>x.classList.toggle("on",x===b));render(b.dataset.f)};
+document.querySelectorAll("a.wa").forEach(a=>{a.href=`https://wa.me/${WA}?text=${encodeURIComponent(a.dataset.msg)}`;a.target="_blank";a.rel="noopener"});
+const lb=document.getElementById("lb");
+g.onclick=e=>{if(e.target.tagName==="IMG"){lb.firstElementChild.src=e.target.src;lb.classList.add("on")}};
+lb.onclick=()=>lb.classList.remove("on");
+const L=document.getElementById("links");
+document.getElementById("bg").onclick=()=>L.classList.toggle("open");
+L.querySelectorAll("a").forEach(a=>a.onclick=()=>L.classList.remove("open"));
+const secs=[...L.querySelectorAll("a")].map(a=>[a,document.querySelector(a.getAttribute("href"))]);
+addEventListener("scroll",()=>{let c=null;secs.forEach(([a,s])=>{if(s.getBoundingClientRect().top<140)c=a});secs.forEach(([a])=>a.classList.toggle("on",a===c))},{passive:true});
+document.getElementById("y").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
